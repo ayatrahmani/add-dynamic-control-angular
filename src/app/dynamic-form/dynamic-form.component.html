@@ -1,0 +1,17 @@
+<form [formGroup]="dynamicFormGroup" (ngSubmit)="getFormData(dynamicFormGroup)">
+<table formGroupName="itemRow" *ngIf="f.length != 0">
+  <tr *ngFor="let  itemrow of f.controls; let i=index" [formGroupName]="i">
+    <td>
+         <input type="text" class="form-control" formControlName="name">
+    </td>
+      <td>
+         <input type="text" class="form-control" formControlName="address">
+      </td>
+      <td>
+        <a href="javascript:void(0)" (click)="remove(i)">Delete</a>
+      </td>
+  </tr>
+</table>
+</form>
+
+<button (click)="add()">Add </button>
